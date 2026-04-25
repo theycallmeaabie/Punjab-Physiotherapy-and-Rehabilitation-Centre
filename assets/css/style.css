@@ -577,6 +577,150 @@ main { padding-top: var(--header-h); }
   color: var(--c-on-surface-variant);
 }
 
+/* ---- Hamburger button ---- */
+.site-header__menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  background: none;
+  flex-shrink: 0;
+}
+.site-header__menu-btn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--c-primary);
+  transition: transform 0.25s, opacity 0.25s;
+}
+.site-header__menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.site-header__menu-btn.open span:nth-child(2) { opacity: 0; }
+.site-header__menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile nav open state — scoped to mobile only so resize to desktop is clean */
+@media (max-width: 767px) {
+  .site-header__nav.mobile-open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 24px 32px;
+    gap: 20px;
+    border-bottom: 1px solid var(--c-neutral-200);
+    z-index: 49;
+    transform: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  }
+  .site-header__nav.mobile-open a { font-size: 13px; }
+}
+
+/* ================================================================
+   RESPONSIVE OVERRIDES
+   ================================================================ */
+
+/* ---- Mobile (≤767px) ---- */
+@media (max-width: 767px) {
+  .site-header {
+    padding: 0 16px;
+  }
+  .site-header__logo-wrap {
+    width: 200px;
+    height: 74px;
+  }
+  .site-header__logo-wrap img { height: 220px; }
+  .site-header__menu-btn { display: flex; }
+
+  /* Hero */
+  .hero { height: auto; min-height: 560px; padding: 52px 0; }
+  .hero__bg img { object-position: center center; }
+  .hero__overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(255,255,255,.92) 0%,
+      rgba(255,255,255,.75) 60%,
+      rgba(255,255,255,.45) 100%
+    );
+  }
+  .hero__content { padding-left: 20px; padding-right: 20px; }
+  .hero__heading { font-size: 34px; margin-bottom: 28px; max-width: 100%; }
+
+  /* Buttons */
+  .btn-primary, .btn-outline, .btn-outline-primary {
+    padding: 14px 28px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+
+  /* Section headings */
+  .section-heading { font-size: 28px; }
+
+  /* About */
+  .about { padding: 52px 0; }
+  .about__text { font-size: 16px; }
+
+  /* Services */
+  .services { padding: 56px 0 68px; }
+  .services__inner { padding: 0 20px; }
+  .services__heading-wrap { margin-bottom: 44px; }
+  .services__rows { gap: 52px; }
+  .services__row { gap: 24px; }
+  .services__img-wrap img { height: 240px; }
+  .services__service-heading { font-size: 22px; margin-bottom: 14px; }
+  .services__service-desc { font-size: 15px; }
+  .services__cta { margin-top: 44px; }
+
+  /* Reviews */
+  .reviews { padding: 56px 0; }
+  .reviews__inner { padding: 0 16px; }
+  .reviews__heading-wrap { margin-bottom: 36px; }
+  .carousel-card { padding: 24px; }
+  .reviews__controls { margin-top: 28px; }
+
+  /* Footer */
+  .footer__cta { padding: 44px 20px; }
+  .footer__cta-text { font-size: 16px; }
+  .footer__cols { padding: 36px 20px; gap: 36px; }
+
+  /* Conditions hero */
+  .conditions-hero { height: 260px; }
+  .conditions-hero__content { padding: 0 20px; }
+  .conditions-hero__heading { font-size: 30px; }
+  .conditions-hero__subtitle { font-size: 11px; letter-spacing: 0.07em; }
+
+  /* Condition sections */
+  .condition-section { padding: 52px 0; }
+  .condition-section__inner { padding: 0 20px; }
+  .condition-section__row { gap: 24px; }
+  .condition-section__heading { font-size: 22px; }
+  .condition-section__img-wrap img { height: 240px; }
+  .condition-list { grid-template-columns: 1fr; }
+
+  /* 404 */
+  .not-found__code { font-size: 80px; }
+  .not-found__heading { font-size: 24px; }
+}
+
+/* ---- Tablet (768px – 1023px) ---- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero__content { padding-left: 48px; }
+  .hero__heading { font-size: 52px; }
+  .section-heading { font-size: 38px; }
+  .services__inner { padding: 0 32px; }
+  .services__rows { gap: 80px; }
+  .services__row { gap: 48px; }
+  .services__img-wrap img { height: 360px; }
+  .condition-section__inner { padding: 0 32px; }
+  .condition-section__img-wrap img { height: 360px; }
+  .footer__cols { padding: 48px 32px; }
+}
+
 /* ---- 404 Page ---- */
 .not-found {
   min-height: calc(100vh - var(--header-h) - 300px);

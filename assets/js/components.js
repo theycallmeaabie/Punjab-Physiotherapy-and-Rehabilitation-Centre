@@ -18,7 +18,7 @@
       <div class="site-header__logo-wrap">
         <img src="assets/images/logo.png" alt="Punjab Physiotherapy Centre">
       </div>
-      <nav class="site-header__nav">
+      <nav class="site-header__nav" id="site-nav">
         <a href="index.html"${isHome ? ' class="active"' : ''}>HOME</a>
         <a href="index.html#services">SERVICES</a>
         <a href="conditions.html"${isCond ? ' class="active"' : ''}>CONDITIONS</a>
@@ -30,6 +30,9 @@
         <a href="#" aria-label="Gmail"     class="social-icon"><i class="fa-regular fa-envelope"></i></a>
         <button class="btn-book-header">BOOK TODAY</button>
       </div>
+      <button class="site-header__menu-btn" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </header>
   `);
 
@@ -76,4 +79,33 @@
       </div>
     </footer>
   `);
+  // Mobile nav toggle
+  const menuBtn = document.getElementById('menu-toggle');
+  const nav     = document.getElementById('site-nav');
+
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function () {
+      const isOpen = nav.classList.toggle('mobile-open');
+      menuBtn.classList.toggle('open', isOpen);
+      menuBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close on nav link click (for same-page anchor links too)
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('mobile-open');
+        menuBtn.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', function (e) {
+      if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
+        nav.classList.remove('mobile-open');
+        menuBtn.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 })();
