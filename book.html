@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book an Appointment — Punjab Physiotherapy and Rehabilitation Centre</title>
+  <meta name="description" content="Book a physiotherapy appointment at Punjab Physiotherapy and Rehabilitation Centre in Malerkotla, Punjab. Fill in your details and we'll confirm via WhatsApp.">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://punjabphysio.com/book.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://punjabphysio.com/book.html">
+  <meta property="og:title"       content="Book an Appointment — Punjab Physiotherapy and Rehabilitation Centre">
+  <meta property="og:description" content="Schedule your physiotherapy session at PPRC Malerkotla.">
+  <meta property="og:image"       content="https://punjabphysio.com/assets/images/logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%231B2E4B'/%3E%3Ctext y='72' x='50' text-anchor='middle' font-size='58' fill='white' font-family='Arial' font-weight='bold'%3EP%3C/text%3E%3C/svg%3E">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div data-component="header"></div>
+
+  <main>
+    <section class="booking">
+      <div class="booking__inner">
+
+        <!-- Map -->
+        <div class="booking__map-wrap">
+          <div class="booking__map-frame">
+            <iframe
+              src="https://maps.google.com/maps?q=Punjab+Physiotherapy+Rehabilitation+Centre+Malerkotla+Punjab+India&output=embed&z=16&iwloc=B&t=m"
+              title="Punjab Physiotherapy and Rehabilitation Centre location"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <a href="https://maps.google.com/maps?q=Punjab+Physiotherapy+Rehabilitation+Centre+Malerkotla+Punjab+India"
+               target="_blank" rel="noopener"
+               class="booking__map-overlay"
+               aria-label="Open in Google Maps"></a>
+          </div>
+          <div class="booking__map-address">
+            <p>
+              <strong>Punjab Physiotherapy and Rehabilitation Centre</strong><br>
+              Malerkotla, Punjab, India<br>
+              +91 96463 29698
+            </p>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="booking__form-wrap">
+          <h1 class="booking__form-title">Book an Appointment</h1>
+          <p class="booking__form-subtitle">Fill in your details below. We will confirm your appointment slot via WhatsApp.</p>
+
+          <form class="booking-form" id="booking-form" novalidate>
+
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" autocomplete="name"
+                     required placeholder="Your full name">
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone (WhatsApp)</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel"
+                     required placeholder="+91 XXXXX XXXXX">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email <span class="form-optional">(optional)</span></label>
+              <input type="email" id="email" name="email" autocomplete="email"
+                     placeholder="your@email.com">
+            </div>
+
+            <div class="form-group">
+              <label for="preferred-day">Preferred Day <span class="form-optional">(optional)</span></label>
+              <input type="date" id="preferred-day" name="preferred-day">
+            </div>
+
+            <button type="submit" class="btn-primary">SUBMIT</button>
+
+          </form>
+        </div>
+
+      </div>
+
+      <div class="booking__quick-contact">
+        <a href="tel:+919646329698" class="qc-btn qc-btn--call">
+          <i class="fa-solid fa-phone"></i> Call Now
+        </a>
+        <a href="https://wa.me/919646329698?text=Hi%2C%20I%E2%80%99d%20like%20to%20book%20a%20physiotherapy%20appointment.%20Please%20share%20available%20slots."
+           target="_blank" rel="noopener" class="qc-btn qc-btn--whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+
+    </section>
+  </main>
+
+  <div data-component="footer"></div>
+
+  <script src="assets/js/components.js"></script>
+  <script>
+    (function () {
+
+      // Phone: always prefix +91, allow only 10 digits after it
+      var phoneEl = document.getElementById(‘phone’);
+      var PHONE_PREFIX = ‘+91 ‘;
+      phoneEl.value = PHONE_PREFIX;
+
+      phoneEl.addEventListener(‘focus’, function () {
+        if (!this.value.startsWith(PHONE_PREFIX)) this.value = PHONE_PREFIX;
+        // Place cursor at end
+        var len = this.value.length;
+        this.setSelectionRange(len, len);
+      });
+
+      phoneEl.addEventListener(‘keydown’, function (e) {
+        // Block backspace/delete/left arrow from eating into the prefix
+        var atPrefix = this.selectionStart <= PHONE_PREFIX.length && this.selectionEnd <= PHONE_PREFIX.length;
+        if (atPrefix && (e.key === ‘Backspace’ || e.key === ‘Delete’)) e.preventDefault();
+      });
+
+      phoneEl.addEventListener(‘input’, function () {
+        var digits = this.value.slice(PHONE_PREFIX.length).replace(/\D/g, ‘’).slice(0, 10);
+        var pos = PHONE_PREFIX.length + digits.length;
+        this.value = PHONE_PREFIX + digits;
+        this.setSelectionRange(pos, pos);
+      });
+
+      var dayInput = document.getElementById(‘preferred-day’);
+      var today = new Date();
+      var maxDate = new Date(today);
+      maxDate.setFullYear(maxDate.getFullYear() + 1);
+      dayInput.min = today.toISOString().split(‘T’)[0];
+      dayInput.max = maxDate.toISOString().split(‘T’)[0];
+
+      document.getElementById(‘booking-form’).addEventListener(‘submit’, function (e) {
+        e.preventDefault();
+
+        var name  = document.getElementById(‘name’).value.trim();
+        var phone = document.getElementById(‘phone’).value.trim();
+        var email = document.getElementById(‘email’).value.trim();
+        var day   = dayInput.value;
+
+        if (!name) { alert(‘Please enter your full name.’); return; }
+        if (!/^[A-Za-z][A-Za-z\s]*$/.test(name) || name.replace(/\s/g, ‘’).length < 3) {
+          alert(‘Full name must be at least 3 letters and contain only alphabets.’);
+          return;
+        }
+
+        var digits = phone.replace(/\D/g, ‘’);
+        if (digits.length === 12 && digits.slice(0, 2) === ‘91’) digits = digits.slice(2);
+        if (digits.length !== 10 || !/^[6-9]/.test(digits)) {
+          alert(‘Please enter a valid 10-digit Indian mobile number (e.g. 98765 43210).’);
+          return;
+        }
+
+        // Email format (optional)
+        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          alert(‘Please enter a valid email address.’);
+          return;
+        }
+
+        var dayFormatted = ‘’;
+        if (day) {
+          try {
+            dayFormatted = new Date(day + ‘T12:00:00’).toLocaleDateString(‘en-IN’, {
+              weekday: ‘long’, day: ‘numeric’, month: ‘long’, year: ‘numeric’
+            });
+          } catch (_) { dayFormatted = day; }
+        }
+
+        var lines = [
+          "Hi, I’d like to book a physiotherapy appointment.",
+          "",
+          "Name: "  + name,
+          "Phone: " + phone
+        ];
+        if (email) lines.push("Email: " + email);
+        if (dayFormatted) lines.push("Preferred Day: " + dayFormatted);
+        lines.push("", "Please share available slots.");
+
+        window.open(
+          ‘https://wa.me/919646329698?text=’ + encodeURIComponent(lines.join(‘\n’)),
+          ‘_blank’, ‘noopener’
+        );
+      });
+    })();
+  </script>
+
+</body>
+
+</html>

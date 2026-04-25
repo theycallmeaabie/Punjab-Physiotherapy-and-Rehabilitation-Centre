@@ -15,20 +15,20 @@
 
   inject('[data-component="header"]', `
     <header class="site-header">
-      <div class="site-header__logo-wrap">
+      <a href="index.html" class="site-header__logo-wrap" aria-label="Punjab Physiotherapy Centre — Home">
         <img src="assets/images/logo.png" alt="Punjab Physiotherapy Centre">
-      </div>
+      </a>
       <nav class="site-header__nav" id="site-nav">
         <a href="index.html"${isHome ? ' class="active"' : ''}>HOME</a>
         <a href="index.html#services">SERVICES</a>
         <a href="conditions.html"${isCond ? ' class="active"' : ''}>CONDITIONS</a>
       </nav>
       <div class="site-header__actions">
-        <a href="#" aria-label="Instagram" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" aria-label="Facebook"  class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" aria-label="WhatsApp"  class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/punjabphysio?igsh=MWJrcnFyZTB6YXV3OA==" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+        <a href="tel:+919646329698" aria-label="Call" class="social-icon"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://wa.me/919646329698?text=Hi%2C%20I%E2%80%99d%20like%20to%20book%20a%20physiotherapy%20appointment.%20Please%20share%20available%20slots." target="_blank" rel="noopener" aria-label="WhatsApp" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
         <a href="#" aria-label="Gmail"     class="social-icon"><i class="fa-regular fa-envelope"></i></a>
-        <button class="btn-book-header">BOOK TODAY</button>
+        <a href="book.html" class="btn-book-header">BOOK TODAY</a>
       </div>
       <button class="site-header__menu-btn" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -45,8 +45,8 @@
       <div class="footer__cols">
         <div class="footer__col">
           <h3 class="footer__col-heading">Contact Us</h3>
-          <p class="mb-loose">Punjab Physiotherapy and Rehabilitation Centre<br>Malerkotla, Punjab, India</p>
-          <p><strong>Phone:</strong> +91 9646329698</p>
+          <p class="mb-loose"><a href="https://maps.google.com/maps?q=Punjab+Physiotherapy+Rehabilitation+Centre+Malerkotla+Punjab+India" target="_blank" rel="noopener" class="footer__maps-link"><i class="fa-solid fa-location-dot"></i> Punjab Physiotherapy and Rehabilitation Centre<br>Malerkotla, Punjab, India</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+919646329698" style="color:rgba(255,255,255,.8)">+91 9646329698</a></p>
           <p><strong>Email:</strong> </p>
         </div>
         <div class="footer__col">
@@ -58,17 +58,16 @@
             <li><span>Thursday</span> <span>9:00 am – 9:00 pm</span></li>
             <li><span>Friday</span>   <span>9:00 am – 9:00 pm</span></li>
             <li><span>Saturday</span> <span>9:00 am – 9:00 pm</span></li>
-            <li><span>Sunday</span>   <span>9:00 am – 9:00 pm</span></li>
           </ul>
         </div>
         <div class="footer__book-col">
-          <button class="btn-book-footer">BOOK AN APPOINTMENT</button>
+          <a href="book.html" class="btn-book-footer">BOOK AN APPOINTMENT</a>
           <div class="footer__follow">
             <h3 class="footer__follow-heading">Follow Us</h3>
             <div class="footer__socials">
-              <a href="#" aria-label="Instagram" class="footer__social-icon"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#" aria-label="Facebook"  class="footer__social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="#" aria-label="WhatsApp"  class="footer__social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="https://www.instagram.com/punjabphysio?igsh=MWJrcnFyZTB6YXV3OA==" target="_blank" rel="noopener" aria-label="Instagram" class="footer__social-icon"><i class="fa-brands fa-instagram"></i></a>
+              <a href="tel:+919646329698" aria-label="Call" class="footer__social-icon"><i class="fa-solid fa-phone"></i></a>
+              <a href="https://wa.me/919646329698?text=Hi%2C%20I%E2%80%99d%20like%20to%20book%20a%20physiotherapy%20appointment.%20Please%20share%20available%20slots." target="_blank" rel="noopener" aria-label="WhatsApp" class="footer__social-icon"><i class="fa-brands fa-whatsapp"></i></a>
               <a href="#" aria-label="Gmail"     class="footer__social-icon"><i class="fa-regular fa-envelope"></i></a>
             </div>
           </div>
